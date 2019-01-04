@@ -1,0 +1,173 @@
+<html>
+
+<head>
+
+<style>
+html, body {
+	width: 100%;
+    height: 100%;
+	background-color: grey;
+	
+    overflow: hidden;
+}
+
+.ctxbg-css {
+	padding: 0;
+    margin: auto;
+    width: height/768*1024;
+    height: 98%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	background-color: white;
+}
+
+.ctx-css {
+    padding: 0;
+    margin: auto;
+    width: height/768*1024;
+    height: 98%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.inp-css{
+	position: absolute;
+	left: 2%;
+	top: 90%;
+	width: 23%;
+	height: 5%;
+	border: 3px solid blue;
+	padding: 5px 5px;
+	background-color: lightgrey;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.inp-css:focus{
+	background-color: lightyellow;
+	border: 3px solid #555;
+}
+
+.inpD-css{
+	position: absolute;
+	left: 75%;
+	top: 90%;
+	width: 23%;
+	height: 5%;
+	border: 3px solid blue;
+	padding: 5px 5px;
+	background-color: lightpurple;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.inpD-css:focus{
+	background-color: lightyellow;
+	border: 3px solid #555;
+}
+
+.dis-css{
+	background-color: lightgrey;
+	position: absolute;
+	left: 2%;
+	top: 60%;
+	width: 22%;
+	height: 28%;
+	border: 3px solid blue;
+	overflow-y: scroll;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.disD-css{
+	background-color: lightgrey;
+	position: absolute;
+	left: 75%;
+	top: 60%;
+	width: 22%;
+	height: 28%;
+	border: 3px solid Red;
+	overflow-y: scroll;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.inpN-css{
+	position: absolute;
+	left: 30%;
+	top: 45%;
+	width: 40%;
+	height: 10%;
+	font-size: 30px;
+	border: 3px solid yellow;
+	background-color: lightyellow;
+	padding: 5px 5px;
+	text-align: center;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.inpN-css:focus{
+	background-color: lightblue;
+	border: 3px solid #555;
+}
+
+</style>
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script src="client/js/matter.js" type="text/javascript"></script>
+
+<script src="client/js/maps/map1Client.js" type="text/javascript"></script>
+<script src="client/js/maps/map2Client.js" type="text/javascript"></script>
+<script src="client/js/maps/map3Client.js" type="text/javascript"></script>
+<script src="client/js/maps/map4Client.js" type="text/javascript"></script>
+
+<script src="client/js/box.js" type="text/javascript"></script>
+<canvas id="ctx-bg" class='ctxbg-css' width='1024' height='768'></canvas>
+<canvas id="ctx" class='ctx-css' width='1024' height='768'></canvas>
+<div id="chat-text" class='dis-css'>
+	<div>Welcome to jeff/chris' hide 'n seek game!</div>
+	<div>This is the global chat, your words will be announced globally.</div>
+</div>
+<div id="chat-textD" class='disD-css'>
+	<div>This is the room chat, only the people in the same room as yours will see your words.</div>
+</div>
+<form id="localForm">
+	<input id="localInput" type="text" class='inp-css' placeholder="Global chat..."/>
+</form>
+<form id="localFormD">
+	<input id="localInputD" type="text" class='inpD-css' placeholder="Room chat..."/>
+</form>
+<form id="nameForm">
+	<input id="nameInput" type="text" class='inpN-css' placeholder="..."/>
+</form>
+
+</head>
+
+<body>
+<script src="client/js/tag.js" type="text/javascript"></script>
